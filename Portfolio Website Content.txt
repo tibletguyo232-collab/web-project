@@ -1,0 +1,57 @@
+** Web Fonts **
+
+  - @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+  - @import url('https://fonts.googleapis.com/css2?family=Delicious+Handrawn&display=swap');
+
+** Color Variables **
+
+    --bg-color: #ffffff;
+	--first_color: #ffffff;
+	--second-color: #444444;
+	--black-color: #000000;
+	--medium-dark: #444444;
+	--orange-color: #ffa500;
+	--blue-color: #0b7dda;
+	--icons-bg: #f4f4f4;
+    
+** Skills **
+  ## I'm Skilled In
+
+   - HTML
+   - CSS
+   - Angular
+   - JavaScript
+   - React
+   - Vue
+   - PHP
+   - MySql
+
+** Services **
+  ##Service We Offer 
+
+  -- I work together with my team to offer best services in: --
+                           
+    - Web Development
+    - Web Design
+    - Web Hosting
+    - Software Development
+
+** About **
+  ##About Me
+ 
+ -I am a skilled and creative frontend web developer with a passion for crafting engaging 
+  and user-friendly web interfaces. My expertise lies in transforming design concepts into 
+  responsive and visually appealing websites and web applications. 
+  With a strong foundation in HTML, CSS, and JavaScript, I excel at implementing responsive design, 
+  optimizing performance, and ensuring cross-browser compatibility
+
+** Social Icons links **
+
+ -https://linkedin.com
+ -https://dribbble.com
+ -https://github.com
+ -https://behance.com
+
+ ** Hero description **
+
+  -Experienced frontend developer with a passion for creating visually stunning and user-friendly websites.
