@@ -1,571 +1,477 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Website - melona </title>
-    <meta name="description" content="Professional portfolio of melona, a skilled frontend developer specializing in creating beautiful, responsive websites.">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="assets/css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nutrition Tracker and Reminder</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    /* Homepage Specific Styles */
+    .hero {
+      background: linear-gradient(135deg, #f3edf2 0%, #e9b8e2 100%);
+      padding: 4rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .hero-content {
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .hero h2 {
+      font-size: 2.8rem;
+      color: #1d3557;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+    
+    .hero p {
+      font-size: 1.2rem;
+      color: #457b9d;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+    }
+    
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    
+    .btn {
+      padding: 0.9rem 2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.3s ease;
+      font-size: 1.1rem;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .btn-primary {
+      background: #e7bce1;
+      color: #1d3557;
+      box-shadow: 0 4px 12px rgba(231, 188, 225, 0.4);
+    }
+    
+    .btn-primary:hover {
+      background: #da6330;
+      color: #f1faee;
+      transform: translateY(-3px);
+    }
+    
+    .btn-secondary {
+      background: #457b9d;
+      color: #f1faee;
+      box-shadow: 0 4px 12px rgba(69, 123, 157, 0.3);
+    }
+    
+    .btn-secondary:hover {
+      background: #1d3557;
+      transform: translateY(-3px);
+    }
+    
+    .features {
+      padding: 5rem 2rem;
+      background: #f9f7f6;
+    }
+    
+    .section-title {
+      text-align: center;
+      color: #1d3557;
+      font-size: 2.2rem;
+      margin-bottom: 3.5rem;
+      position: relative;
+    }
+    
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 4px;
+      background: #e7bce1;
+      margin: 0.8rem auto 0;
+      border-radius: 2px;
+    }
+    
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .feature-card {
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      text-align: center;
+      padding: 2.5rem 1.8rem;
+    }
+    
+    .feature-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    .feature-icon {
+      font-size: 3.5rem;
+      color: #e7bce1;
+      margin-bottom: 1.5rem;
+    }
+    
+    .feature-card h3 {
+      color: #1d3557;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    .feature-card p {
+      color: #457b9d;
+      line-height: 1.6;
+    }
+    
+    .trimester-guide {
+      padding: 5rem 2rem;
+      background: linear-gradient(to bottom, #e9b8e2 0%, #f3edf2 100%);
+      text-align: center;
+    }
+    
+    .trimester-cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .trimester-card {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 16px;
+      padding: 2.5rem;
+      width: 100%;
+      max-width: 350px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease;
+    }
+    
+    .trimester-card:hover {
+      transform: scale(1.03);
+    }
+    
+    .trimester-card h3 {
+      font-size: 1.8rem;
+      color: #1d3557;
+      margin-bottom: 1.5rem;
+    }
+    
+    .trimester-card ul {
+      text-align: left;
+      margin: 1.5rem 0;
+      padding-left: 1.5rem;
+    }
+    
+    .trimester-card li {
+      margin-bottom: 0.8rem;
+      color: #457b9d;
+      line-height: 1.5;
+    }
+    
+    .testimonials {
+      padding: 5rem 2rem;
+      background: #f9f7f6;
+    }
+    
+    .testimonial-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    
+    
+    
+    
+    .client-info {
+      display: flex;
+      align-items: center;
+    }
+    
+    .client-info img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 1rem;
+      border: 3px solid #e7bce1;
+    }
+    
+    .client-details h4 {
+      color: #1d3557;
+      margin-bottom: 0.3rem;
+    }
+    
+    .client-details p {
+      color: #da6330;
+      margin: 0;
+      font-style: normal;
+      font-weight: 500;
+    }
+    
+    .cta-section {
+      padding: 5rem 2rem;
+      background: linear-gradient(135deg, #f3edf2 0%, #e9b8e2 100%);
+      text-align: center;
+    }
+    
+    .cta-box {
+      background: #fff;
+      border-radius: 16px;
+      padding: 3.5rem 2rem;
+      max-width: 700px;
+      margin: 0 auto;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    .cta-box h2 {
+      color: #1d3557;
+      font-size: 2.2rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .cta-box p {
+      color: #457b9d;
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.7;
+    }
+    
+    /* Animation for hero elements */
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-15px); }
+      100% { transform: translateY(0px); }
+    }
+    
+    .hero-icon {
+      position: absolute;
+      font-size: 8rem;
+      opacity: 0.15;
+      color: #1d3557;
+      z-index: 1;
+      animation: float 6s ease-in-out infinite;
+    }
+    
+    .icon-1 { top: 20%; left: 10%; animation-delay: 0s; }
+    .icon-2 { top: 60%; right: 15%; animation-delay: 1s; }
+    .icon-3 { bottom: 20%; left: 20%; animation-delay: 2s; }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .hero h2 {
+        font-size: 2.2rem;
+      }
+      
+      .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .btn {
+        width: 100%;
+        max-width: 300px;
+      }
+      
+      .trimester-cards {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
 </head>
 <body>
-   <!-- ===== MODAL BOXES ===== -->
-   <div class="modal" id="skillsModal">
-       <div class="modal-content">
-           <span class="close"><i class="fa fa-times"></i></span>
-           <div class="content-title">
-               <h2>My Skills</h2>
-           </div>
-           <div class="skills-container">
-               <div class="skill-category">
-                   <h3>Frontend</h3>
-                   <div class="skills-box">
-                       <div class="skill-item">
-                           <i class="fab fa-html5"></i>
-                           <span>HTML5</span>
-                       </div>
-                       <div class="skill-item">
-                           <i class="fab fa-css3-alt"></i>
-                           <span>CSS3</span>
-                       </div>
-                       <div class="skill-item">
-                           <i class="fab fa-js"></i>
-                           <span>JavaScript</span>
-                       </div>
-                       <div class="skill-item">
-                           <i class="fab fa-react"></i>
-                           <span>React</span>
-                       </div>
-                       <div class="skill-item">
-                           <i class="fab fa-vuejs"></i>
-                           <span>Vue.js</span>
-                       </div>
-                       <div class="skill-item">
-                           <i class="fab fa-angular"></i>
-                           <span>Angular</span>
-                       </div>
-                   </div>
-               </div>
-               <div class="skill-category">
-                   <h3>Backend & Others</h3>
-                   <div class="skills-box">
-                       <div class="skill-item">
-                           <i class="fab fa-php"></i>
-                           <span>PHP</span>
-                       </div>
-                       <div class="skill-item">
-                           <i class="fas fa-database"></i>
-                           <span>MySQL</span>
-                       </div>
-                       <div class="skill-item">
-                           <i class="fab fa-git-alt"></i>
-                           <span>Git</span>
-                       </div>
-                       <div class="skill-item">
-                           <i class="fab fa-sass"></i>
-                           <span>Sass</span>
-                       </div>
-                       <div class="skill-item">
-                           <i class="fab fa-figma"></i>
-                           <span>Figma</span>
-                       </div>
-                   </div>
-               </div>
-           </div>
-       </div>
-   </div>
+<header class="site-header">
+  <div class="logo">
+    <img src="../imgs/nu.png" alt="Healthy Pregnancy Logo">
+    <h1>Pregnancy Nutrition Tracker and Reminder</h1>
+  </div>
 
-   <div class="modal" id="servicesModal">
-    <div class="modal-content">
-        <span class="close"><i class="fa fa-times"></i></span>
-        <div class="content-title">
-            <h2>Services I Offer</h2>
-        </div>
-        <div class="services-container">
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-code"></i>
-                </div>
-                <h3>Web Development</h3>
-                <p>Custom website development with clean, efficient code and modern frameworks.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-paint-brush"></i>
-                </div>
-                <h3>Web Design</h3>
-                <p>Beautiful, user-centered designs that align with your brand identity.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-mobile-alt"></i>
-                </div>
-                <h3>Responsive Design</h3>
-                <p>Websites that look great and function perfectly on all devices.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-rocket"></i>
-                </div>
-                <h3>Performance Optimization</h3>
-                <p>Speed optimization to improve user experience and SEO rankings.</p>
-            </div>
-        </div>
+  <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+  <nav class="nav-links" id="nav-links">
+    <a href="index.html">Home</a>
+    <a href="Trimester.html"><i class="fa-solid fa-calendar-days"></i>Trimester</a>
+    <a href="meals.html">Meal tracker</a>
+    <a href="reminders.html"><i class="fa-solid fa-bell"></i>Reminders</a>
+    <a href="supplements.html">Supplement and intake</a>
+    <a href="register.html">Register / Sign In</a>
+    <a href="profile.html">Profile</a>
+  </nav>
+</header>
+
+<main>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-icon icon-1"><i class="fas fa-apple-alt"></i></div>
+    <div class="hero-icon icon-2"><i class="fas fa-heart"></i></div>
+    <div class="hero-icon icon-3"><i class="fas fa-baby"></i></div>
+    
+    <div class="hero-content">
+      <h2>Nourish Yourself, Nurture Your Baby</h2>
+      <p>Track your nutrition, receive personalized reminders, and ensure a healthy pregnancy journey with our comprehensive tools designed just for you.</p>
+      <div class="hero-buttons">
+        <a href="register.html" class="btn btn-primary">Get Started Today</a>
+        <a href="#features" class="btn btn-secondary">Learn More</a>
+      </div>
     </div>
-   </div>
+  </section>
 
-   <div class="modal" id="aboutModal">
-    <div class="modal-content">
-        <span class="close"><i class="fa fa-times"></i></span>
-        <div class="content-title">
-            <h2>About Me</h2>
+  <!-- Features Section -->
+  <section class="features" id="features">
+    <h2 class="section-title">How We Support Your Journey</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-calendar-check"></i>
         </div>
-        <div class="about-content">
-            <div class="about-text">
-                <p>I am a passionate frontend web developer with expertise in creating engaging and user-friendly web interfaces. My journey in web development began 10 years ago, and since then I've helped over 2,000 clients bring their digital visions to life.</p>
-                
-                <p>What sets me apart is my attention to detail and commitment to delivering pixel-perfect implementations of design concepts. I specialize in responsive design, performance optimization, and creating accessible web experiences that work seamlessly across all browsers and devices.</p>
-                
-                <p>When I'm not coding, you can find me contributing to open-source projects, attending tech meetups, or exploring new frameworks and tools to expand my skill set.</p>
-            </div>
-            <div class="about-image">
-                <img src="assets/img/profile-placeholder.jpg" alt="melona profile picture" id="profileImage">
-            </div>
+        <h3>Trimester Tracking</h3>
+        <p>Personalized nutrition guidance tailored to each stage of your pregnancy with weekly updates.</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-utensils"></i>
         </div>
+        <h3>Meal tracker</h3>
+        <p>Custom meal tracker with delicious, nutrient-rich recipes designed for expecting mothers.</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-bell"></i>
+        </div>
+        <h3>Smart Reminders</h3>
+        <p>Never miss a vitamin, checkup, or hydration break with our timely notifications.</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-pills"></i>
+        </div>
+        <h3>Supplement Tracker</h3>
+        <p>Monitor your vitamin and supplement intake with our easy-to-use tracking system.</p>
+      </div>
     </div>
-   </div>
+  </section>
 
-   <!-- ===== END OF MODAL BOXES ===== -->
-
-   <!-- ===== WRAPPER ===== -->
-    <div class="wrapper">
-        <!-- ===== NAVIGATION BAR ===== -->
-        <nav class="nav">
-            <div class="nav-container">
-                <div class="nav_logo">
-                    <span>melona</span>
-                </div>
-                <div class="right_nav">
-                    <div class="nav_menu" id="navMenu">
-                        <ul class="link_list">
-                            <div class="close-menu">
-                                <i class="fa fa-times" onclick="menuClose()"></i>
-                            </div>
-                            <li class="list">
-                                <a href="#" class="link active">Home</a>
-                            </li>
-                            <li class="list">
-                                <a href="#skillsModal" class="link modal-trigger">Skills</a>
-                            </li>
-                            <li class="list">
-                                <a href="#servicesModal" class="link modal-trigger">Services</a>
-                            </li>
-                            <li class="list">
-                                <a href="#aboutModal" class="link modal-trigger">About</a>
-                            </li>
-                            <li class="list">
-                                <a href="#contact" class="link">Contact</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="nav_buttons">
-                        <a href="#contact" class="btn hire-btn"><i class="fas fa-paper-plane"></i> <span>Hire Me</span></a>
-                        <div class="mode">
-                            <div class="moon-sun" id="toggle-switch">
-                                <i class="fa fa-moon" id="moon"></i>
-                                <i class="fa fa-sun" id="sun"></i>
-                            </div>
-                        </div>
-                        <div class="nav_menu_btn">
-                            <i class="fa fa-bars" onclick="myMenuFunction()"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </nav>
-        
-        <!-- ===== MAIN CONTENT ===== -->
-        <main class="main">
-            <div class="row hero">
-                <div class="col col-1">
-        
-
-                    <!-- ===== HERO CONTENT ===== -->
-                    <div class="hero_box">
-                        <div class="hello">
-                            <p>Hello, I'm</p>
-                        </div>
-                        <h1 class="hero_name">melona</h1>
-                        <div class="job">
-                            <span class="multiText"></span>
-                        </div>
-                        <div class="hero_description">
-                            <p>I build exceptional digital experiences that are fast, accessible, and visually appealing. Let's create something amazing together!</p>
-                        </div>
-                        <div class="hero_btn">
-                            <a href="#contact" class="btn_1">Get In Touch</a>
-                            <a href="#projects" class="btn_2">View My Work</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col col-2">
-                    <div class="hero-image-container">
-                        <div class="circle-animation"></div>
-                        <img src="assets/img/developer-illustration.png" alt="Web developer illustration" class="hero-image">
-                    </div>
-                   
-                    <div class="stats-container">
-                        <div class="stat-box clients">
-                            <i class="fas fa-user-check"></i>
-                            <div class="stat-content">
-                                <span data-count="2000">0</span><span>+</span>
-                                <p>Happy Clients</p>
-                            </div>
-                        </div>
-                        <div class="stat-box experience">
-                            <i class="fas fa-award"></i>
-                            <div class="stat-content">
-                                <span data-count="10">0</span><span>+</span>
-                                <p>Years Experience</p>
-                            </div>
-                        </div>
-                        <div class="stat-box projects">
-                            <i class="fas fa-project-diagram"></i>
-                            <div class="stat-content">
-                                <span data-count="150">0</span><span>+</span>
-                                <p>Projects Completed</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ===== PROJECTS SECTION ===== -->
-            <section class="section projects-section" id="projects">
-                <div class="section-header">
-                    <h2 class="section-title">Featured Projects</h2>
-                    <p class="section-subtitle">A selection of my recent work</p>
-                </div>
-                <div class="projects-grid">
-                    <div class="project-card">
-                        <div class="project-image">
-                            <img src="assets/img/project1.jpg" alt="E-commerce Website Project">
-                            <div class="project-overlay">
-                                <div class="project-links">
-                                    <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
-                                    <a href="#" class="project-link"><i class="fab fa-github"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-info">
-                            <h3>Modern E-commerce Platform</h3>
-                            <p>A fully responsive online store built with React and Node.js</p>
-                            <div class="project-tags">
-                                <span>React</span>
-                                <span>Node.js</span>
-                                <span>MongoDB</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-card">
-                        <div class="project-image">
-                            <img src=assets\img\photo_2025-08-09_22-31-11.jpgalt="Portfolio Website Project">
-                            <div class="project-overlay">
-                                <div class="project-links">
-                                    <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
-                                    <a href="#" class="project-link"><i class="fab fa-github"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-info">
-                            <h3>Creative Portfolio Website</h3>
-                            <p>Minimalist portfolio with smooth animations and dark mode</p>
-                            <div class="project-tags">
-                                <span>HTML/CSS</span>
-                                <span>JavaScript</span>
-                                <span>GSAP</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-card">
-                        <div class="project-image">
-                            <img src="assets/img/project3.jpg" alt="Dashboard UI Project">
-                            <div class="project-overlay">
-                                <div class="project-links">
-                                    <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
-                                    <a href="#" class="project-link"><i class="fab fa-github"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-info">
-                            <h3>Analytics Dashboard</h3>
-                            <p>Interactive data visualization dashboard with Vue.js</p>
-                            <div class="project-tags">
-                                <span>Vue.js</span>
-                                <span>Chart.js</span>
-                                <span>Firebase</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="section-footer">
-                    <a href="#" class="btn view-more-btn">View All Projects <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </section>
-
-            <!-- ===== TESTIMONIALS SECTION ===== -->
-            <section class="section testimonials-section">
-                <div class="section-header">
-                    <h2 class="section-title">Client Testimonials</h2>
-                    <p class="section-subtitle">What people say about my work</p>
-                </div>
-                <div class="testimonials-container">
-                    <div class="testimonial-card">
-                        <div class="testimonial-content">
-                            <div class="testimonial-quote">
-                                <i class="fas fa-quote-left"></i>
-                            </div>
-                            <p>melona transformed our outdated website into a modern, high-performing platform that increased our conversion rate by 40%. Their attention to detail and communication throughout the project was exceptional.</p>
-                        </div>
-                        <div class="testimonial-author">
-                            <div class="author-image">
-                                <img src="assets/img/client1.jpg" alt="Sarah Johnson">
-                            </div>
-                            <div class="author-info">
-                                <h4>Sarah Johnson</h4>
-                                <p>CEO, TechSolutions Inc.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-card">
-                        <div class="testimonial-content">
-                            <div class="testimonial-quote">
-                                <i class="fas fa-quote-left"></i>
-                            </div>
-                            <p>Working with melona was a pleasure. They delivered our project ahead of schedule and implemented several performance optimizations we hadn't even considered. Will definitely work with them again!</p>
-                        </div>
-                        <div class="testimonial-author">
-                            <div class="author-image">
-                                <img src="assets/img/client2.jpg" alt="Michael Chen">
-                            </div>
-                            <div class="author-info">
-                                <h4>Michael Chen</h4>
-                                <p>Marketing Director, BrightIdeas</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- ===== CONTACT SECTION ===== -->
-            <section class="section contact-section" id="contact">
-                <div class="section-header">
-                    <h2 class="section-title">Get In Touch</h2>
-                    <p class="section-subtitle">Have a project in mind or want to collaborate?</p>
-                </div>
-                <div class="contact-container">
-                    <div class="contact-info">
-                        <div class="contact-method">
-                            <div class="contact-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div class="contact-details">
-                                <h4>Email Me</h4>
-                                <a href="tibletnabiot@gmail.com.dev">tibletnabiot@gmail.com.dev</a>
-                            </div>
-                        </div>
-                        <div class="contact-method">
-                            <div class="contact-icon">
-                                <i class="fas fa-phone-alt"></i>
-                            </div>
-                            <div class="contact-details">
-                                <h4>Call Me</h4>
-                                <a href="tel:+251716443315">+251716443315</a>
-                            </div>
-                        </div>
-                        <div class="contact-method">
-                            <div class="contact-icon">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
-                            <div class="contact-details">
-                                <h4>Location</h4>
-                                <p>Ethiopia ,Hawassa</p>
-                            </div>
-                        </div>
-                    </div>
-                    <form class="contact-form" id="contactForm">
-                        <div class="form-group">
-                            <input type="text" id="name" name="name" placeholder="Your Name" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" id="email" name="email" placeholder="Your Email" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" id="subject" name="subject" placeholder="Subject">
-                        </div>
-                        <div class="form-group">
-                            <textarea id="message" name="message" placeholder="Your Message" required></textarea>
-                        </div>
-                        <button type="submit" class="btn submit-btn">Send Message <i class="fas fa-paper-plane"></i></button>
-                    </form>
-                </div>
-            </section>
-        </main>
-
-        <!-- ===== FOOTER ===== -->
-        <footer class="footer">
-            <div class="footer-container">
-                <div class="footer-content">
-                    <div class="footer-about">
-                        <h3 class="footer-logo">melona</h3>
-                        <p>Creating beautiful, functional websites that help businesses grow and succeed in the digital world.</p>
-                        <div class="footer-social">
-                            <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#" aria-label="Dribbble"><i class="fab fa-dribbble"></i></a>
-                        </div>
-                    </div>
-                    <div class="footer-links">
-                        <h3>Quick Links</h3>
-                        <ul>
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#skillsModal" class="modal-trigger">Skills</a></li>
-                            <li><a href="#servicesModal" class="modal-trigger">Services</a></li>
-                            <li><a href="#aboutModal" class="modal-trigger">About</a></li>
-                            <li><a href="#contact">Contact</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-links">
-                        <h3>Services</h3>
-                        <ul>
-                            <li><a href="#">Web Development</a></li>
-                            <li><a href="#">Web Design</a></li>
-                            <li><a href="#">UI/UX Design</a></li>
-                            <li><a href="#">Performance Optimization</a></li>
-                            <li><a href="#">Consulting</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-newsletter">
-                        <h3>Newsletter</h3>
-                        <p>Subscribe to my newsletter for the latest updates and insights.</p>
-                        <form class="newsletter-form">
-                            <input type="email" placeholder="Your Email">
-                            <button type="submit"><i class="fas fa-paper-plane"></i></button>
-                        </form>
-                    </div>
-                </div>
-                <div class="footer-bottom">
-                    <p>&copy; <span id="currentYear"></span> melona. All rights reserved.</p>
-                    <div class="footer-legal">
-                        <a href="#">Privacy Policy</a>
-                        <a href="#">Terms of Service</a>
-                    </div>
-                </div>
-            </div>
-        </footer>
+  <!-- Trimester Guide -->
+  <section class="trimester-guide">
+    <h2 class="section-title">Nutrition By Trimester</h2>
+    <div class="trimester-cards">
+      <div class="trimester-card">
+        <h3>First Trimester</h3>
+        <p>Essential nutrients for early development</p>
+        <ul>
+          <li>Folic acid for neural tube development</li>
+          <li>Vitamin B6 for nausea relief</li>
+          <li>Iron to support increased blood volume</li>
+          <li>Small, frequent meals to combat morning sickness</li>
+        </ul>
+        <a href="Trimester.html" class="btn btn-primary">Learn More</a>
+      </div>
+      
+      <div class="trimester-card">
+        <h3>Second Trimester</h3>
+        <p>Building blocks for growth</p>
+        <ul>
+          <li>Calcium for baby's bone development</li>
+          <li>Protein for tissue and muscle growth</li>
+          <li>Omega-3 for brain development</li>
+          <li>Increased calorie intake as energy needs rise</li>
+        </ul>
+        <a href="Trimester.html" class="btn btn-primary">Learn More</a>
+      </div>
+      
+      <div class="trimester-card">
+        <h3>Third Trimester</h3>
+        <p>Preparation for birth and beyond</p>
+        <ul>
+          <li>Vitamin K for blood clotting</li>
+          <li>Fiber to prevent constipation</li>
+          <li>Complex carbs for sustained energy</li>
+          <li>Hydration to support amniotic fluid</li>
+        </ul>
+        <a href="Trimester.html" class="btn btn-primary">Learn More</a>
+      </div>
     </div>
+  </section>
 
-    <!-- ===== BACK TO TOP BUTTON ===== -->
-    <a href="#" class="back-to-top" aria-label="Back to top">
-        <i class="fas fa-arrow-up"></i>
-    </a>
+ <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="cta-box">
+      <h2>Start Your Healthier Pregnancy Journey Today</h2>
+      <p>Join thousands of moms who have transformed their pregnancy experience with personalized nutrition tracking and support.</p>
+      <div class="hero-buttons">
+        <a href="register.html" class="btn btn-primary">Create Your Account</a>
+        <a href="meals.html" class="btn btn-secondary">Explore Meal tracker</a>
+      </div>
+    </div>
+  </section>
+</main>
 
-    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
-    <script>
-        // Typed JS for animated text
-        var typingEffect = new Typed(".multiText", {
-            strings: ["Frontend Developer", "UI/UX Designer", "Web Specialist"],
-            loop: true,
-            typeSpeed: 80,
-            backSpeed: 50,
-            backDelay: 1500,
-            cursorChar: '|',
-            smartBackspace: true
+<footer class="site-footer">
+  <div class="footer-content">
+    <p>&copy; 2025 Pregnancy Nutrition Tracker and Reminder. All rights reserved.</p>
+    <p class="tagline">Helping moms stay healthy for their little ones ❤️</p>
+
+    <a href="about.html">About Us</a>
+    <a href="services.html">Services</a>
+    
+    <div class="contact-block">
+      <a href="contact.html">Contact Us</a>
+      <div class="social-icons">
+        <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Mobile menu toggle
+  document.getElementById('menu-toggle').addEventListener('click', function() {
+    const navLinks = document.getElementById('nav-links');
+    navLinks.classList.toggle('active');
+  });
+  
+  // Smooth scrolling for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth'
         });
-
-        // Current year for footer
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
-
-        // Animated counter for stats
-        function animateCounters() {
-            const counters = document.querySelectorAll('[data-count]');
-            const speed = 200;
-            
-            counters.forEach(counter => {
-                const target = +counter.getAttribute('data-count');
-                const count = +counter.innerText;
-                const increment = target / speed;
-                
-                if(count < target) {
-                    counter.innerText = Math.ceil(count + increment);
-                    setTimeout(animateCounters, 1);
-                } else {
-                    counter.innerText = target;
-                }
-            });
-        }
-
-        // Initialize counters when stats section is in view
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    animateCounters();
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, {threshold: 0.5});
-
-        const statsSection = document.querySelector('.stats-container');
-        if(statsSection) {
-            observer.observe(statsSection);
-        }
-
-        // Modal functionality
-        document.querySelectorAll('.modal-trigger').forEach(trigger => {
-            trigger.addEventListener('click', function(e) {
-                e.preventDefault();
-                const modalId = this.getAttribute('href');
-                document.querySelector(modalId).style.display = 'block';
-                document.body.style.overflow = 'hidden';
-            });
-        });
-
-        document.querySelectorAll('.close').forEach(closeBtn => {
-            closeBtn.addEventListener('click', function() {
-                this.closest('.modal').style.display = 'none';
-                document.body.style.overflow = 'auto';
-            });
-        });
-
-        window.addEventListener('click', function(e) {
-            if (e.target.classList.contains('modal')) {
-                e.target.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            }
-        });
-
-        // Back to top button
-        const backToTopButton = document.querySelector('.back-to-top');
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                backToTopButton.style.opacity = '1';
-                backToTopButton.style.visibility = 'visible';
-            } else {
-                backToTopButton.style.opacity = '0';
-                backToTopButton.style.visibility = 'hidden';
-            }
-        });
-
-        // Form submission
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            // Here you would typically send the form data to a server
-            alert('Thank you for your message! I will get back to you soon.');
-            this.reset();
-        });
-    </script>
-
-    <script src="assets/js/main.js"></script>
+      }
+    });
+  });
+</script>
 </body>
 </html>
